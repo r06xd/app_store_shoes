@@ -9,7 +9,7 @@ const swaggerSpec = require('./docs/swagger');
 
 const app = express();
 app.use(cors());
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // 👉 Documentación Swagger
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
