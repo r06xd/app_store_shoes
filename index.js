@@ -15,9 +15,15 @@ const PORT = process.env.PORT || 3000;
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 const usuariosRoutes = require('./routes/usuariosRoutes');
+const clientesRoutes = require('./routes/clientesRoutes');
+const productosRoutes = require('./routes/productosRoutes');
+const ventasRoutes = require('./routes/ventasRoutes');
 
 app.use(express.json());
 app.use('/api/usuarios', usuariosRoutes);
+app.use('/api/clientes', clientesRoutes);
+app.use('/api/productos', productosRoutes);
+app.use('/api/ventas', ventasRoutes);
 
 app.listen(PORT,'0.0.0.0', ()=>{
     console.log('Servidor corriendo en http://0.0.0.0:',PORT);
