@@ -10,12 +10,15 @@ exports.CreateCliente = async (req, res) => {
     cl_telefono,
     cl_email,
     cl_cedula,
+    cl_fecha_creacion,
+    cl_fecha_modificacion,
+    cl_id_usuario_modificacion,
   } = req.body;
 
   try {
     const result = await pool.query(
-      `INSERT INTO cliente (cl_id_usuario, cl_nombre, cl_apellido, cl_direccion, cl_telefono, cl_email, cl_cedula)
-       VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *`,
+      `INSERT INTO cliente (cl_id_usuario, cl_nombre, cl_apellido, cl_direccion, cl_telefono, cl_email, cl_cedula, cl_fecha_creacion, cl_fecha_modificacion, cl_id_usuario_modificacion)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *`,
       [
         cl_id_usuario,
         cl_nombre,
@@ -23,7 +26,11 @@ exports.CreateCliente = async (req, res) => {
         cl_direccion,
         cl_telefono,
         cl_email,
-        cl_cedula,]
+        cl_cedula,
+        cl_fecha_creacion,
+        cl_fecha_modificacion,
+        cl_id_usuario_modificacion,
+      ]
     );
     res.status(201).json(result.rows[0]);
   } catch (err) {
@@ -65,12 +72,15 @@ exports.UpdateCliente = async (req, res) => {
     cl_telefono,
     cl_email,
     cl_cedula,
+    cl_fecha_creacion,
+    cl_fecha_modificacion,
+    cl_id_usuario_modificacion,
   } = req.body;
 
   try {
     const result = await pool.query(
       `UPDATE cliente
-       SET cl_id_usuario = $1, cl_nombre = $2, cl_apellido = $3, cl_direccion = $4, cl_telefono = $5, cl_email = $6, cl_cedula = $7
+       SET cl_id_usuario = $1, cl_nombre = $2, cl_apellido = $3, cl_direccion = $4, cl_telefono = $5, cl_email = $6, cl_cedula = $7, cl_fecha_modificacion = $8, cl_id_usuario_modificacion = $9
        WHERE cl_id = $8
        RETURNING *`,
       [
@@ -81,6 +91,9 @@ exports.UpdateCliente = async (req, res) => {
         cl_telefono,
         cl_email,
         cl_cedula,
+        cl_fecha_creacion,
+        cl_fecha_modificacion,
+        cl_id_usuario_modificacion,
         id]
     );
 

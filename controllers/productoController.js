@@ -125,3 +125,15 @@ exports.GetProducto = async (req, res) => {
     res.status(500).send('Error al obtener producto');
   }
 };
+
+//GetProducto
+exports.GetProductoVariacion = async (req, res) => {
+    const { id } = req.params;
+    try {
+    const result = await pool.query('SELECT * FROM producto_variacion WHERE pv_id_producto = $1 RETURNING *', [id]);
+    res.json(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error al obtener producto_variacion');
+  }
+};
