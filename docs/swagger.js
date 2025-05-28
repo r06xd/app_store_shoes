@@ -4,7 +4,7 @@ const swaggerOptions = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'API Tienda de Zapatos',
+      title: 'Api para gestionar una tienda en linea',
       version: '1.0.0',
       description: 'Documentación de la API REST de usuarios, perfiles, ventas, etc.',
     },
