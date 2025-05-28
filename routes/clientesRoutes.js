@@ -26,21 +26,29 @@ router.post('/', clienteController.CreateCliente);
 router.get('/', clienteController.GetCliente);
 /**
  * @swagger
- * /api/clientesByIdUsuario/{id}:
+ * /api/clientes/clientesByIdUsuario/{id}:
  *   get:
  *     summary: Obtiene todos los clientes
  *     tags: [clientes]
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
  *     responses:
  *       200:
  *         description: Lista de clientes
  */
-router.get('/:id', clienteController.GetClienteByIdUsuario);
+router.get('/clientesByIdUsuario/:id', clienteController.GetClienteByIdUsuario);
 /**
  * @swagger
  * /api/clientes/{id}:
  *   put:
  *     summary: Actualizar clientes
  *     tags: [clientes]
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
  *     responses:
  *       200:
  *         description: Actualiza informacion de clientes
@@ -52,6 +60,10 @@ router.put('/:id', clienteController.UpdateCliente);
  *   delete:
  *     summary: Elimina clientes
  *     tags: [clientes]
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
  *     responses:
  *       200:
  *         description: Elimina informacion de clientes

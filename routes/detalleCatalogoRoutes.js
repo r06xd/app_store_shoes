@@ -15,14 +15,18 @@ const detalleCatalogoController = require('../controllers/detalleCatalogoControl
 router.get('/', detalleCatalogoController.GetDetalleCatalogo);
 /**
  * @swagger
- * /api/detalleCatalogoByCatalogo/{id}:
+ * /api/detalleCatalogo/detalleCatalogoByCatalogo/{id}:
  *   get:
  *     summary: Obtiene todos los detalle catalogos por catalogos
  *     tags: [detalleCatalogo]
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
  *     responses:
  *       200:
  *         description: Lista de detalleCatalogo
  */
-router.get('/:id', detalleCatalogoController.GetDetalleCatalogoByIdCatalogo);
+router.get('/detalleCatalogoByCatalogo/:id', detalleCatalogoController.GetDetalleCatalogoByIdCatalogo);
 
 module.exports = router;

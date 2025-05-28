@@ -26,21 +26,29 @@ router.post('/', productoController.CreateProducto);
 router.get('/', productoController.GetProductos);
 /**
  * @swagger
- * /api/productosById/{id}:
+ * /api/productos/productosById/{id}:
  *   get:
  *     summary: Obtiene todos los productos
  *     tags: [productos]
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
  *     responses:
  *       200:
  *         description: Lista de productos
  */
-router.get('/:id', productoController.GetProducto);
+router.get('/productosById/:id', productoController.GetProducto);
 /**
  * @swagger
  * /api/productos/{id}:
  *   put:
  *     summary: Actualizar productos
  *     tags: [productos]
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
  *     responses:
  *       200:
  *         description: Actualiza informacion de productos
@@ -52,6 +60,10 @@ router.put('/:id', productoController.UpdateProducto);
  *   delete:
  *     summary: Elimina productos
  *     tags: [productos]
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
  *     responses:
  *       200:
  *         description: Elimina informacion de productos
@@ -63,6 +75,10 @@ router.delete('/:id', productoController.DeleteProducto);
  *   get:
  *     summary: Obtiene todos los productos
  *     tags: [productos]
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
  *     responses:
  *       200:
  *         description: Lista de productos

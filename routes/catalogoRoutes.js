@@ -16,14 +16,18 @@ router.get('/', catalogoController.GetCatalogo);
 
 /**
  * @swagger
- * /api/catalogoById/{id}:
+ * /api/catalogo/catalogoById/{id}:
  *   get:
  *     summary: Obtiene todos los catalogos
  *     tags: [catalogo]
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
  *     responses:
  *       200:
  *         description: Lista de catalogos
  */
-router.get('/:id', catalogoController.GetCatalogoById);
+router.get('/catalogoById/:id', catalogoController.GetCatalogoById);
 
 module.exports = router;

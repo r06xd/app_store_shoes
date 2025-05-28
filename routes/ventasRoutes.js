@@ -15,7 +15,7 @@ const ventaController = require('../controllers/ventaController');
 router.post('/', ventaController.CreateVenta);
 /**
  * @swagger
- * /api/detalleVentas:
+ * /api/ventas/detalleVentas:
  *   post:
  *     summary: Crea ventas
  *     tags: [detalleVentas]
@@ -37,18 +37,22 @@ router.post('/', ventaController.CreateDetalleVenta);
 router.get('/', ventaController.GetVentas);
 /**
  * @swagger
- * /api/ventasByCliente/{id}:
+ * /api/ventas/ventasByCliente/{id}:
  *   get:
  *     summary: Obtiene todos los ventas
  *     tags: [ventas]
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
  *     responses:
  *       200:
  *         description: Lista de ventas
  */
-router.get('/:id', ventaController.GetVentasByCliente);
+router.get('/ventasByCliente/:id', ventaController.GetVentasByCliente);
 /**
  * @swagger
- * /api/detallesVentas:
+ * /api/ventas/detallesVentas:
  *   get:
  *     summary: Obtiene todos los ventas
  *     tags: [detalleVentas]
@@ -56,10 +60,25 @@ router.get('/:id', ventaController.GetVentasByCliente);
  *       200:
  *         description: Lista de ventas
  */
-router.get('/', ventaController.GetDetalleVenta);
+router.get('/detallesVentas/', ventaController.GetDetalleVenta);
 /**
  * @swagger
- * /api/detalleVentasById/{id}:
+ * /api/ventas/detalleVentasById/{id}:
+ *   get:
+ *     summary: Obtiene todos los ventas
+ *     tags: [detalleVentas]
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
+ *     responses:
+ *       200:
+ *         description: Lista de ventas
+ */
+router.get('/detalleVentasById/:id', ventaController.GetDetalleVentaById);
+/**
+ * @swagger
+ * /api/ventas/detalleVentasByIdVentas/{id}:
  *   get:
  *     summary: Obtiene todos los ventas
  *     tags: [detalleVentas]
@@ -67,18 +86,7 @@ router.get('/', ventaController.GetDetalleVenta);
  *       200:
  *         description: Lista de ventas
  */
-router.get('/:id', ventaController.GetDetalleVentaById);
-/**
- * @swagger
- * /api/detalleVentasByIdVentas/{id}:
- *   get:
- *     summary: Obtiene todos los ventas
- *     tags: [detalleVentas]
- *     responses:
- *       200:
- *         description: Lista de ventas
- */
-router.get('/:id', ventaController.GetDetalleVentaByVentas);
+router.get('/detalleVentasByIdVentas/:id', ventaController.GetDetalleVentaByVentas);
 /**
  * @swagger
  * /api/ventas/{id}:
@@ -92,7 +100,7 @@ router.get('/:id', ventaController.GetDetalleVentaByVentas);
 router.put('/:id', ventaController.UpdateVenta);
 /**
  * @swagger
- * /api/detalleVentas/{id}:
+ * /api/ventas/detalleVentas/{id}:
  *   put:
  *     summary: Actualizar ventas
  *     tags: [detalleVentas]
@@ -100,7 +108,7 @@ router.put('/:id', ventaController.UpdateVenta);
  *       200:
  *         description: Actualiza informacion de ventas
  */
-router.put('/:id', ventaController.UpdateDetalleVenta);
+router.put('/detalleVentas/:id', ventaController.UpdateDetalleVenta);
 /**
  * @swagger
  * /api/ventas/{id}:
@@ -114,7 +122,7 @@ router.put('/:id', ventaController.UpdateDetalleVenta);
 router.delete('/:id', ventaController.DeleteVenta);
 /**
  * @swagger
- * /api/detalleVentas/{id}:
+ * /api/ventas/detalleVentas/{id}:
  *   delete:
  *     summary: Elimina ventas
  *     tags: [detalleVentas]
@@ -122,6 +130,6 @@ router.delete('/:id', ventaController.DeleteVenta);
  *       200:
  *         description: Elimina informacion de ventas
  */
-router.delete('/:id', ventaController.DeleteDetalleVenta);
+router.delete('/detalleVentas/:id', ventaController.DeleteDetalleVenta);
 
 module.exports = router;
