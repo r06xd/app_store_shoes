@@ -118,7 +118,7 @@ exports.GetImagenProducto = async (req, res) => {
 exports.GetProducto = async (req, res) => {
     const { id } = req.params;
     try {
-    const result = await pool.query('SELECT top(1) * FROM producto WHERE pr_id = $1 RETURNING *', [id]);
+    const result = await pool.query('SELECT * FROM producto WHERE pr_id = $1', [id]);
     res.json(result.rows);
   } catch (err) {
     console.error(err);
@@ -130,7 +130,7 @@ exports.GetProducto = async (req, res) => {
 exports.GetProductoVariacion = async (req, res) => {
     const { id } = req.params;
     try {
-    const result = await pool.query('SELECT * FROM producto_variacion WHERE pv_id_producto = $1 RETURNING *', [id]);
+    const result = await pool.query('SELECT * FROM producto_variacion WHERE pv_id_producto = $1', [id]);
     res.json(result.rows);
   } catch (err) {
     console.error(err);
