@@ -4,7 +4,7 @@ const catalogoController = require('../controllers/catalogosController');
 
 /**
  * @swagger
- * /api/catalogo:
+ * /api/catalogos:
  *   get:
  *     summary: Obtiene todos los catalogos
  *     tags: [catalogo]

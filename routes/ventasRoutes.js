@@ -4,7 +4,7 @@ const ventaController = require('../controllers/ventaController');
 
 /**
  * @swagger
- * /api/encabezadoVentas:
+ * /api/ventas/encabezadoVentas:
  *   post:
  *     summary: Crea ventas
  *     tags: [ventas]

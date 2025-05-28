@@ -71,7 +71,7 @@ router.put('/:id', productoController.UpdateProducto);
 router.delete('/:id', productoController.DeleteProducto);
 /**
  * @swagger
- * /api/variacionByProducto/{id}:
+ * /api/productos/variacionByProducto/{id}:
  *   get:
  *     summary: Obtiene todos los productos
  *     tags: [productos]
@@ -83,6 +83,6 @@ router.delete('/:id', productoController.DeleteProducto);
  *       200:
  *         description: Lista de productos
  */
-router.get('/:id', productoController.GetProductoVariacion);
+router.get('/variacionByProducto/:id', productoController.GetProductoVariacion);
 
 module.exports = router;
