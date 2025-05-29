@@ -46,7 +46,7 @@ exports.GetVentas = async (req, res) => {
 exports.GetVentasByCliente = async (req, res) => {
     const { id } = req.params;
     try {
-    const result = await pool.query('SELECT * FROM encabezado_venta WHERE ev_id_cliente = $1', id);
+    const result = await pool.query('SELECT * FROM encabezado_venta WHERE ev_id_cliente = $1', [id]);
     res.json(result.rows);
     } catch (err) {
         console.error(err);
