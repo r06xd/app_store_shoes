@@ -151,7 +151,7 @@ exports.GetDetalleVenta = async (req, res) => {
 exports.GetDetalleVentaByVentas = async (req, res) => {
     const { id } = req.params;
     try {
-    const result = await pool.query('SELECT * FROM detalle_venta_producto WHERE dvp_id_encabezado_venta = $1', id);
+    const result = await pool.query('SELECT * FROM detalle_venta_producto WHERE dvp_id_encabezado_venta = $1', [id]);
     res.json(result.rows);
   } catch (err) {
     console.error(err);
@@ -163,7 +163,7 @@ exports.GetDetalleVentaByVentas = async (req, res) => {
 exports.GetDetalleVentaById = async (req, res) => {
     const { id } = req.params;
     try {
-    const result = await pool.query('SELECT * FROM detalle_venta_producto WHERE dvp_id = $1', id);
+    const result = await pool.query('SELECT * FROM detalle_venta_producto WHERE dvp_id = $1', [id]);
     res.json(result.rows);
   } catch (err) {
     console.error(err);

@@ -14,7 +14,7 @@ exports.GetCatalogo = async (req, res) => {
 exports.GetCatalogoById = async (req, res) => {
     const { id } = req.params;
     try {
-        const result = await pool.query('SELECT * FROM catalogo WHERE ca_id = $1', id);
+        const result = await pool.query('SELECT * FROM catalogo WHERE ca_id = $1', [id]);
         res.json(result.rows);
     } catch (err) {
         console.error(err);
